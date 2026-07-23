@@ -1,5 +1,6 @@
 import React from 'react';
-import { Globe, Mail, FileText } from 'lucide-react';
+import { Mail } from 'lucide-react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function Hero(): React.JSX.Element {
   return (
@@ -37,12 +38,12 @@ export default function Hero(): React.JSX.Element {
           {/* Social Links */}
           <div style={{ display: 'flex', gap: '1rem', marginLeft: '1rem' }}>
             <a href="https://github.com/kirilchobansky" target="_blank" rel="noreferrer" title="GitHub">
-              <Globe size={24} color="var(--text-muted)" />
+              <FaGithub size={24} color="var(--text-muted)" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" title="LinkedIn">
-              <FileText size={24} color="var(--text-muted)" />
+            <a href="https://www.linkedin.com/in/kiril-chobansky-57738a306" target="_blank" rel="noreferrer" title="LinkedIn">
+              <FaLinkedin size={24} color="var(--text-muted)" />
             </a>
-            <a href="mailto:your-email@gmail.com" title="Email">
+            <a href="https://kirilchobansky@gmail.com" title="Email">
               <Mail size={24} color="var(--text-muted)" />
             </a>
           </div>
