@@ -1,0 +1,78 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: rgba(5, 8, 12, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--hud-green-dark);
+  padding: 0.8rem 1.5rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--hud-green);
+  box-shadow: 0 0 10px var(--hud-green);
+}
+
+.statusText {
+  color: var(--hud-green);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.socials {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.socialIcon {
+  color: var(--hud-muted);
+  transition: color 0.2s ease, filter 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.socialIcon:hover {
+  color: var(--hud-green);
+  filter: drop-shadow(0 0 6px var(--hud-green-glow));
+}
+
+.langBtn {
+  background-color: var(--hud-green-faint);
+  border: 1px solid var(--hud-green);
+  color: var(--hud-green);
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-tech);
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+}
+
+.langBtn:hover {
+  background-color: var(--hud-green);
+  color: var(--hud-bg);
+  box-shadow: 0 0 12px var(--hud-green-glow);
+}
