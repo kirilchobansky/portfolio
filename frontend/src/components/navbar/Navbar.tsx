@@ -16,7 +16,7 @@ export default function Navbar(): React.JSX.Element {
           <span className={styles.statusText}>{t.nav.status}</span>
         </div>
 
-        {/* Center: Social Links */}
+        {/* Center: Social Links (Dead Center) */}
         <div className={styles.socials}>
           <a 
             href="https://github.com/kirilchobansky" 

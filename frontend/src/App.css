@@ -18,7 +18,7 @@
 }
 
 body {
-  background-color: var(--hud-bg);
+  /* background-color: #05080c; */
   color: var(--hud-text);
   font-family: var(--font-tech);
   overflow-x: hidden;

@@ -1,20 +1,17 @@
 import './App.css';
+import MainHub from './components/main-hub/MainHub';
+import MatrixRain from './components/MatrixRain';
 import Navbar from './components/navbar/Navbar';
-import Hero from './components/main-hub/MainHub';
 
 function App() {
   return (
-    <div>
-      {/* Background Cyberpunk FX */}
-      <div className="cyber-grid-bg" />
-      <div className="scanlines" />
-
-      {/* Top Cyberpunk Navbar */}
+    <div style={{ height: '100vh', overflow: 'hidden', position: 'relative' }}>
+      <MatrixRain />
+      
       <Navbar />
 
-      {/* Content wrapper with top padding to clear fixed navbar */}
       <main style={{ paddingTop: '60px' }}>
-        <Hero />
+        <MainHub />
       </main>
     </div>
   );
