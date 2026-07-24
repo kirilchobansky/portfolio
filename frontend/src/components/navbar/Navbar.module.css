@@ -24,7 +24,6 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  /* Fixed min-width prevents status text length from pushing other elements */
   min-width: 220px; 
 }
 
@@ -88,4 +87,22 @@
   background-color: var(--hud-green);
   color: var(--hud-bg);
   box-shadow: 0 0 12px var(--hud-green-glow);
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+   ========================================= */
+@media (max-width: 820px) {
+  .status {
+    /* Hides the "System Online" on phones to prevent overlapping */
+    display: none; 
+  }
+  
+  .socials {
+    /* Shifts the socials slightly to the left now that the status is gone */
+    position: static;
+    transform: none;
+    flex-grow: 1;
+    justify-content: flex-start;
+  }
 }

@@ -1,34 +1,23 @@
 .hubContainer {
   position: relative;
   width: 100%;
-  height: calc(100vh - 60px); /* Locks view to exact viewport height */
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  border: none; /* Removes any default container borders */
+  outline: none;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
-  align-items: flex-end; /* Sits the avatar at bottom center */
+  align-items: center;
   overflow: hidden;
+  --neon-green: #00FF66;
+  --neon-glow: rgba(0, 255, 102, 0.7);
 }
 
-.centerAvatar {
-  position: relative;
-  z-index: 2;
-  height: 82vh; /* Hits your exact ~80-85% height target */
-  max-height: 750px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-
-.avatarImage {
-  height: 100%;
-  width: auto;
-  object-fit: contain;
-  /* Blends out the light fake checkerboard against dark background */
-  mix-blend-mode: lighten;
-  filter: drop-shadow(0 0 20px var(--hud-green-glow)) contrast(120%);
-  mask-image: linear-gradient(to top, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
-}
-
-/* SVG Laser Lines Layer */
+/* =========================================
+   SVG VECTOR NETWORK
+   ========================================= */
 .svgOverlay {
   position: absolute;
   top: 0;
@@ -39,150 +28,240 @@
   pointer-events: none;
 }
 
-.laserLine {
-  stroke: var(--hud-green);
-  stroke-width: 2;
-  stroke-dasharray: 6 6;
-  opacity: 0.6;
-  filter: drop-shadow(0 0 6px var(--hud-green-glow));
-  animation: laserFlow 20s linear infinite;
+.baseTrack {
+  stroke: var(--neon-green);
+  stroke-width: 1;
+  fill: none;
+  opacity: 0.15;
 }
 
-@keyframes laserFlow {
-  from { stroke-dashoffset: 200; }
-  to { stroke-dashoffset: 0; }
+.pulseLine {
+  stroke-width: 4;
+  stroke-linecap: round;
+  fill: none;
+  filter: drop-shadow(0 0 10px var(--neon-green));
+  transition: stroke-width 0.4s ease, filter 0.4s ease;
 }
 
-/* Center Image Container (80-85% height target) */
+.pulseLine.activeLine {
+  stroke-width: 7;
+  filter: drop-shadow(0 0 20px var(--neon-green)) drop-shadow(0 0 5px #fff);
+}
+
+/* =========================================
+   CENTRAL AVATAR
+   ========================================= */
 .centerAvatar {
-  position: relative;
+  position: absolute;
   z-index: 2;
-  height: 75vh;
-  max-height: 700px;
+  height: 80vh;
+  bottom: 0;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  pointer-events: none;
 }
 
 .avatarImage {
   height: 100%;
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 0 15px var(--hud-green-glow)) grayscale(40%) contrast(120%);
-  mask-image: linear-gradient(to top, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
 }
 
-.avatarPlaceholder {
-  height: 100%;
-  width: 280px;
-  border: 1px dashed var(--hud-green);
-  background: var(--hud-green-faint);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: var(--hud-green);
-  font-size: 0.85rem;
-  letter-spacing: 1px;
-  box-shadow: 0 0 20px var(--hud-green-glow);
-}
-
-/* Interactive Main Nodes */
+/* =========================================
+   PRIMARY HUD NODES (Large)
+   ========================================= */
 .node {
   position: absolute;
-  z-index: 3;
-  width: 130px;
-  height: 130px;
+  z-index: 10;
+  width: 120px; 
+  height: 120px; 
+  transform: translate(-50%, -50%) scale(1);
   border-radius: 50%;
-  background: var(--hud-card-bg);
-  border: 1px solid var(--hud-green-dark);
+  background: radial-gradient(circle at center, #021208 0%, #010603 100%);
+  border: 2px solid rgba(0, 255, 102, 0.3);
+  box-shadow: 0 0 20px rgba(0, 255, 102, 0.15), inset 0 0 15px rgba(0, 255, 102, 0.1);
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   cursor: pointer;
   text-decoration: none;
-  color: var(--hud-text);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+  outline: none;
 }
 
-.node:hover {
-  border-color: var(--hud-green);
-  box-shadow: 0 0 25px var(--hud-green-glow);
-  transform: scale(1.08);
-}
-
-.nodeRing {
-  position: absolute;
-  top: -6px;
-  left: -6px;
-  right: -6px;
-  bottom: -6px;
-  border-radius: 50%;
-  border: 1px dashed var(--hud-green);
-  opacity: 0.5;
-  pointer-events: none;
-  animation: spin 15s linear infinite;
-}
-
-.node:hover .nodeRing {
-  opacity: 1;
-  animation-duration: 4s;
-  filter: drop-shadow(0 0 8px var(--hud-green));
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.nodeIcon {
+  color: rgba(0, 255, 102, 0.75);
+  transition: all 0.4s ease;
 }
 
 .nodeTitle {
   font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: var(--hud-green);
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: rgba(0, 255, 102, 0.75);
   margin-top: 0.4rem;
-  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
 }
 
-/* Node Grid Coordinates (Desktop Desktop 16:9 View) */
-.nodeAbout { top: 18%; left: 15%; }
-.nodeStack { bottom: 20%; left: 18%; }
-.nodeProjects { top: 18%; right: 15%; }
-.nodeContact { bottom: 20%; right: 18%; }
+.node:hover {
+  transform: translate(-50%, -50%) scale(1.25);
+  border-color: var(--neon-green);
+  box-shadow: 0 0 40px var(--neon-glow), inset 0 0 30px var(--neon-glow);
+  background: radial-gradient(circle at center, #062b16 0%, #010603 100%);
+}
+.node:hover .nodeIcon,
+.node:hover .nodeTitle {
+  color: #fff;
+  text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
+}
 
-/* Mobile Adaptation (Under 820px) */
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  box-sizing: border-box;
+  transition: all 0.5s ease;
+}
+
+.ring1 { inset: -20px; border: 3px solid transparent; border-top: 3px solid var(--neon-green); border-bottom: 3px dashed var(--neon-green); animation: spin 10s linear infinite; opacity: 0.8; }
+.ring2 { inset: -38px; border: 3px solid transparent; border-left: 4px solid var(--neon-green); border-right: 4px dotted var(--neon-green); animation: spinReverse 14s linear infinite; opacity: 0.6; }
+.ring3 { inset: -56px; border: 3px solid transparent; border-top: 4px dashed var(--neon-green); border-bottom: 4px solid var(--neon-green); animation: spin 18s linear infinite; opacity: 0.5; }
+
+.node:hover .ring1 { animation-duration: 2s; opacity: 1; filter: drop-shadow(0 0 8px var(--neon-green)); }
+.node:hover .ring2 { animation-duration: 3s; opacity: 1; filter: drop-shadow(0 0 12px var(--neon-green)); }
+.node:hover .ring3 { animation-duration: 4s; opacity: 0.9; filter: drop-shadow(0 0 8px var(--neon-green)); }
+
+.nodeAbout    { top: 25%; left: 20%; }
+.nodeStack    { top: 75%; left: 25%; }
+.nodeProjects { top: 30%; left: 80%; } 
+.nodeContact  { top: 70%; left: 75%; } 
+
+/* =========================================
+   SECONDARY SOCIAL MEDIA NODES (Bigger & Easier to click)
+   ========================================= */
+.socialWrapper {
+  position: absolute;
+  z-index: 5;
+  transform: translate(-50%, -50%);
+  animation: floatDrift 6s ease-in-out infinite;
+}
+
+.socialWrapper:hover {
+  animation-play-state: paused;
+}
+
+@keyframes floatDrift {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+  50% { transform: translate(-50%, -50%) translateY(-15px); }
+}
+
+.socialInsta    { top: 18%; left: 45%; animation-duration: 5.5s; animation-delay: 0s; }
+.socialGithub   { top: 85%; left: 45%; animation-duration: 7s;   animation-delay: -2s; }
+.socialLinkedin { top: 50%; left: 92%; animation-duration: 6s;   animation-delay: -1s; }
+.socialGmail    { top: 45%; left: 8%;  animation-duration: 8s;   animation-delay: -3s; }
+
+.socialNode {
+  position: relative;
+  width: 60px; /* Increased size */
+  height: 60px; /* Increased size */
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #021208 0%, #010603 100%);
+  border: 1px solid rgba(0, 255, 102, 0.4);
+  box-shadow: 0 0 10px rgba(0, 255, 102, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.socialNode:hover {
+  transform: scale(1.15); 
+}
+
+.socialIcon {
+  color: var(--neon-green);
+  filter: drop-shadow(0 0 5px var(--neon-green));
+  transition: color 0.3s ease, filter 0.3s ease;
+}
+
+.socialWrapper:hover .brandInsta { color: #E1306C; filter: drop-shadow(0 0 8px #E1306C); }
+.socialWrapper:hover .brandGithub { color: #ffffff; filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)); }
+.socialWrapper:hover .brandLinkedin { color: #0077b5; filter: drop-shadow(0 0 8px #0077b5); }
+.socialWrapper:hover .brandGmail { color: #EA4335; filter: drop-shadow(0 0 8px #EA4335); }
+
+/* Scaled up rings for larger secondary nodes */
+.sRing {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  box-sizing: border-box;
+  transition: all 0.4s ease;
+}
+
+.sRing1 { inset: -10px; border: 1.5px solid transparent; border-top: 1.5px solid var(--neon-green); border-bottom: 1.5px dashed var(--neon-green); animation: spin 8s linear infinite; opacity: 0.8; }
+.sRing2 { inset: -18px; border: 1.5px solid transparent; border-left: 1.5px solid var(--neon-green); border-right: 1.5px dotted var(--neon-green); animation: spinReverse 11s linear infinite; opacity: 0.6; }
+.sRing3 { inset: -26px; border: 1.5px solid transparent; border-top: 2px dashed var(--neon-green); border-bottom: 2px solid var(--neon-green); animation: spin 14s linear infinite; opacity: 0.4; }
+
+.socialWrapper:hover .sRing1 { animation-duration: 1.5s; opacity: 1; filter: drop-shadow(0 0 5px var(--neon-green)); }
+.socialWrapper:hover .sRing2 { animation-duration: 2.5s; opacity: 1; filter: drop-shadow(0 0 5px var(--neon-green)); }
+.socialWrapper:hover .sRing3 { animation-duration: 3s; opacity: 0.8; }
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes spinReverse { 0% { transform: rotate(360deg); } 100% { transform: rotate(0deg); } }
+
+/* =========================================
+   MOBILE / RESPONSIVE VIEW (Optimized 2x2 Grid)
+   ========================================= */
 @media (max-width: 820px) {
   .hubContainer {
-    flex-direction: column;
-    min-height: auto;
-    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1.5rem;
+    padding: 2rem;
+    height: 100vh;
+    align-content: center;
+    justify-items: center;
   }
-
-  .svgOverlay { display: none; }
-
-  .centerAvatar {
-    height: 45vh;
-    margin-bottom: 2rem;
+  
+  /* Hide the complicated background elements on mobile */
+  .svgOverlay, .socialWrapper { 
+    display: none; 
   }
-
-  .node {
-    position: relative;
-    top: auto !important;
-    bottom: auto !important;
-    left: auto !important;
-    right: auto !important;
-    width: 80%;
-    max-width: 300px;
-    height: 60px;
-    border-radius: 8px;
-    flex-direction: row;
-    gap: 1rem;
-    margin-bottom: 1rem;
+  
+  /* Fade avatar heavily into the background */
+  .centerAvatar { 
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 55vh; 
+    opacity: 0.15; 
+    z-index: 0;
+    pointer-events: none;
   }
-
-  .nodeRing {
-    border-radius: 8px;
+  
+  /* Override absolute positioning for the grid */
+  .node { 
+    position: relative; 
+    top: auto !important; 
+    left: auto !important; 
+    transform: none; 
+    margin-bottom: 0; 
+    width: 95px; /* Smaller for mobile */
+    height: 95px;
+    z-index: 10;
   }
+  
+  .node:hover { transform: scale(1.1); }
+  .nodeTitle { font-size: 0.7rem; }
+  
+  /* Tighter rings for smaller mobile nodes */
+  .ring1 { inset: -12px; }
+  .ring2 { inset: -22px; }
+  .ring3 { inset: -32px; }
 }
