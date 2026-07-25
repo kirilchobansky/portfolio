@@ -1,82 +1,69 @@
 export const translations = {
   en: {
-    nav: {
-      status: "SYSTEM ONLINE",
-      toggleLang: "BG",
-    },
-    nodes: {
-      about: "ABOUT_ME",
-      projects: "PROJECTS",
-      stack: "TECH_STACK",
-      contact: "COMMS_LINK"
-    },
+    nav: { status: "SYSTEM ONLINE", toggleLang: "BG" },
+    nodes: { about: "ABOUT_ME", projects: "PROJECTS", stack: "TECH_STACK", contact: "COMMS_LINK" },
+    
+    // 1. ABOUT CONTENT
     aboutSection: {
-      title: "// 01. ABOUT_ME",
-      subtitle: "Computer Science Student @ Sofia University (FMI)",
-      bio: "Passionate about building fast, reliable software solutions. My background combines strong mathematical problem-solving with practical experience across full-stack web and desktop applications.",
-      educationTitle: "Education & Background",
-      edu1: "Sofia University (FMI) — B.Sc. Computer Science",
-      edu2: "NPMG & SMG — Focus on Mathematics & Informatics"
+      bio: "Computer Science student at Sofia University (FMI). Passionate about building fast, reliable software architecture from low-level systems to responsive frontends.",
+      edu1: "B.Sc. Computer Science - FMI, Sofia University",
+      edu2: "NPMG - National High School of Mathematics and Science"
     },
+
+    // 2. TECH STACK CONTENT
     stackSection: {
-      title: "// 02. TECH_STACK",
-      languages: "Languages & Core",
-      frontend: "Frontend Frameworks",
-      backend: "Backend & Systems"
+      core: "Core & Systems: C++, CMake, SDL3, Docker, Tauri",
+      web: "Web Frontend: React, TypeScript, Vite",
+      backend: "Backend & DB: Node.js, Frappe"
     },
+
+    // 3. PROJECTS CONTENT
     projectsSection: {
-      title: "// 03. FEATURED_PROJECTS",
-      viewCode: "Source Code",
-      liveDemo: "Live Demo"
+      proj1_title: "Vertex Engine",
+      proj1_desc: "Custom C++ desktop graphics and game window framework utilizing CMake and SDL3.",
+      proj2_title: "Enterprise Architecture DB",
+      proj2_desc: "Localized database management environment built with Frappe and Docker to securely track business contracts.",
+      proj3_title: "German-Bulgarian Notebook",
+      proj3_desc: "React application designed to store, translate, and track vocabulary word pairs.",
+      repoText: "[ VIEW_SOURCE ]"
     },
+
+    // 4. CONTACT CONTENT
     contactSection: {
-      title: "// 04. COMMS_LINK",
-      subtitle: "Establish Direct Connection",
-      emailLabel: "Direct Email",
-      locationLabel: "Location",
-      locationValue: "Sofia, Bulgaria",
-      copyEmail: "Copy Email",
-      copied: "Copied!"
+      location: "Location: Sofia, Bulgaria",
+      emailLabel: "Direct Comm: kirilchobansky@gmail.com"
     }
   },
+  
   bg: {
-    nav: {
-      status: "СИСТЕМАТА Е ОНЛАЙН",
-      toggleLang: "EN",
-    },
-    nodes: {
-      about: "ЗА_МЕН",
-      projects: "ПРОЕКТИ",
-      stack: "ТЕХНОЛОГИИ",
-      contact: "КОНТАКТИ"
-    },
+    nav: { status: "СИСТЕМАТА Е ОНЛАЙН", toggleLang: "EN" },
+    nodes: { about: "ЗА_МЕН", projects: "ПРОЕКТИ", stack: "ТЕХНОЛОГИИ", contact: "КОНТАКТИ" },
+    
     aboutSection: {
-      title: "// 01. ЗА_МЕН",
-      subtitle: "Студент по Компютърни науки @ Софийски университет (ФМИ)",
-      bio: "Ориентиран към разработването на бърз и надежден софтуер. Съчетавам силна математическа подготовка с практически опит във full-stack уеб и десктоп приложенията.",
-      educationTitle: "Образование и опит",
-      edu1: "Софийски университет (ФМИ) — Бакалавър Компютърни науки",
-      edu2: "НПМГ & СМГ — Специализация Математика и Информатика"
+      bio: "Студент по Компютърни науки в Софийски университет (ФМИ). Ориентиран към изграждането на бърза и надеждна софтуерна архитектура - от системи на ниско ниво до responsive потребителски интерфейси.",
+      edu1: "Бакалавър Компютърни науки - ФМИ, СУ",
+      edu2: "НПМГ - Национална природо-математическа гимназия"
     },
+
     stackSection: {
-      title: "// 02. ТЕХНОЛОГИИ",
-      languages: "Езици за програмиране",
-      frontend: "Frontend рамки",
-      backend: "Backend & Системи"
+      core: "Ядро и Системи: C++, CMake, SDL3, Docker, Tauri",
+      web: "Уеб Frontend: React, TypeScript, Vite",
+      backend: "Backend и Бази данни: Node.js, Frappe"
     },
+
     projectsSection: {
-      title: "// 03. ПРОЕКТИ",
-      viewCode: "Код в GitHub",
-      liveDemo: "Демо на живо"
+      proj1_title: "Vertex Engine",
+      proj1_desc: "Собствен C++ десктоп графичен енджин, използващ CMake и SDL3.",
+      proj2_title: "Enterprise Architecture DB",
+      proj2_desc: "Локализирана система за управление на бази данни, изградена с Frappe и Docker за сигурно проследяване на бизнес договори.",
+      proj3_title: "Българо-Немски Речник",
+      proj3_desc: "React приложение, създадено за съхранение, превод и проследяване на речникови двойки.",
+      repoText: "[ ВИЖ_КОДА ]"
     },
+
     contactSection: {
-      title: "// 04. КОНТАКТИ",
-      subtitle: "Установете директна връзка",
-      emailLabel: "Имейл адрес",
-      locationLabel: "Локация",
-      locationValue: "София, България",
-      copyEmail: "Копирай имейл",
-      copied: "Копирано!"
+      location: "Локация: София, България",
+      emailLabel: "Директна връзка: kirilchobansky@gmail.com"
     }
   }
 };

@@ -1,129 +1,100 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { 
-  FaUser, FaCode, FaFolderOpen, FaTerminal, 
-  FaInstagram, FaGithub, FaLinkedin, FaEnvelope 
-} from 'react-icons/fa';
+import { FaUser, FaCode, FaFolderOpen, FaTerminal, FaInstagram, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+
 import styles from './MainHub.module.css';
+import NetworkOverlay from '../network-overlay/NetworkOverlay';
+import PrimaryNode from '../primary-node/PrimaryNode';
+import SocialNode from '../social-node/SocialNode';
+import SubpageSystem from '../subpage-system/SubpageSystem';
+
+type EntryDirection = 'top' | 'left' | 'right' | 'bottom';
+
+interface ModalState {
+  isOpen: boolean;
+  activeId: string | null;
+  direction: EntryDirection;
+}
 
 export default function MainHub(): React.JSX.Element {
   const { t } = useLanguage();
-  
   const [hoveredNode, setHoveredNode] = useState<number | null>(null);
-  const getDur = (nodeId: number) => (hoveredNode === nodeId ? "1s" : "4s");
+
+  // Modal State Management
+  const [modal, setModal] = useState<ModalState>({
+    isOpen: false,
+    activeId: null,
+    direction: 'top',
+  });
+
+  const openModal = (id: string, direction: EntryDirection) => {
+    setModal({ isOpen: true, activeId: id, direction });
+  };
+
+  const closeModal = () => {
+    setModal((prev) => ({ ...prev, isOpen: false }));
+  };
 
   return (
     <div className={styles.hubContainer}>
       
-      {/* SVG Vector Network */}
-      <svg className={styles.svgOverlay} preserveAspectRatio="none">
-        <defs>
-          <mask id="circleMask">
-            <rect width="100%" height="100%" fill="white" />
-            <circle cx="20%" cy="25%" r="118" fill="black" />
-            <circle cx="25%" cy="75%" r="118" fill="black" />
-            <circle cx="80%" cy="30%" r="118" fill="black" />
-            <circle cx="75%" cy="70%" r="118" fill="black" />
-          </mask>
+      <NetworkOverlay hoveredNode={hoveredNode} />
 
-          <linearGradient id="wave1" x1="0%" y1="0%" x2="20%" y2="25%" gradientUnits="userSpaceOnUse">
-            <stop stopColor="transparent"><animate attributeName="offset" values="-1; 1" dur={getDur(1)} repeatCount="indefinite" /></stop>
-            <stop stopColor="var(--neon-green)"><animate attributeName="offset" values="-0.5; 1.5" dur={getDur(1)} repeatCount="indefinite" /></stop>
-            <stop stopColor="transparent"><animate attributeName="offset" values="0; 2" dur={getDur(1)} repeatCount="indefinite" /></stop>
-          </linearGradient>
-
-          <linearGradient id="wave2" x1="0%" y1="100%" x2="25%" y2="75%" gradientUnits="userSpaceOnUse">
-            <stop stopColor="transparent"><animate attributeName="offset" values="-1; 1" dur={getDur(2)} repeatCount="indefinite" /></stop>
-            <stop stopColor="var(--neon-green)"><animate attributeName="offset" values="-0.5; 1.5" dur={getDur(2)} repeatCount="indefinite" /></stop>
-            <stop stopColor="transparent"><animate attributeName="offset" values="0; 2" dur={getDur(2)} repeatCount="indefinite" /></stop>
-          </linearGradient>
-
-          <linearGradient id="wave3" x1="100%" y1="0%" x2="80%" y2="30%" gradientUnits="userSpaceOnUse">
-            <stop stopColor="transparent"><animate attributeName="offset" values="-1; 1" dur={getDur(3)} repeatCount="indefinite" /></stop>
-            <stop stopColor="var(--neon-green)"><animate attributeName="offset" values="-0.5; 1.5" dur={getDur(3)} repeatCount="indefinite" /></stop>
-            <stop stopColor="transparent"><animate attributeName="offset" values="0; 2" dur={getDur(3)} repeatCount="indefinite" /></stop>
-          </linearGradient>
-
-          <linearGradient id="wave4" x1="100%" y1="100%" x2="75%" y2="70%" gradientUnits="userSpaceOnUse">
-            <stop stopColor="transparent"><animate attributeName="offset" values="-1; 1" dur={getDur(4)} repeatCount="indefinite" /></stop>
-            <stop stopColor="var(--neon-green)"><animate attributeName="offset" values="-0.5; 1.5" dur={getDur(4)} repeatCount="indefinite" /></stop>
-            <stop stopColor="transparent"><animate attributeName="offset" values="0; 2" dur={getDur(4)} repeatCount="indefinite" /></stop>
-          </linearGradient>
-        </defs>
-
-        <g mask="url(#circleMask)">
-          <line x1="0%" y1="0%" x2="20%" y2="25%" className={styles.baseTrack} />
-          <line x1="0%" y1="0%" x2="20%" y2="25%" stroke="url(#wave1)" className={`${styles.pulseLine} ${hoveredNode === 1 ? styles.activeLine : ''}`} />
-
-          <line x1="0%" y1="100%" x2="25%" y2="75%" className={styles.baseTrack} />
-          <line x1="0%" y1="100%" x2="25%" y2="75%" stroke="url(#wave2)" className={`${styles.pulseLine} ${hoveredNode === 2 ? styles.activeLine : ''}`} />
-
-          <line x1="100%" y1="0%" x2="80%" y2="30%" className={styles.baseTrack} />
-          <line x1="100%" y1="0%" x2="80%" y2="30%" stroke="url(#wave3)" className={`${styles.pulseLine} ${hoveredNode === 3 ? styles.activeLine : ''}`} />
-
-          <line x1="100%" y1="100%" x2="75%" y2="70%" className={styles.baseTrack} />
-          <line x1="100%" y1="100%" x2="75%" y2="70%" stroke="url(#wave4)" className={`${styles.pulseLine} ${hoveredNode === 4 ? styles.activeLine : ''}`} />
-        </g>
-      </svg>
-
-      {/* Central Avatar pushed to background lightly on mobile, regular on desktop */}
       <div className={styles.centerAvatar}>
-        <img src="/avatar.png" alt="Avatar" className={styles.avatarImage} />
+        <img src="/avatar2.png" alt="Avatar" className={styles.avatarImage} />
       </div>
 
-      {/* PRIMARY HUD NODES */}
-      <a href="#about" className={`${styles.node} ${styles.nodeAbout}`} onMouseEnter={() => setHoveredNode(1)} onMouseLeave={() => setHoveredNode(null)}>
-        <div className={`${styles.ring} ${styles.ring1}`} /><div className={`${styles.ring} ${styles.ring2}`} /><div className={`${styles.ring} ${styles.ring3}`} />
-        <FaUser size={26} className={styles.nodeIcon} />
-        <span className={styles.nodeTitle}>{t.nodes.about}</span>
-      </a>
-
-      <a href="#stack" className={`${styles.node} ${styles.nodeStack}`} onMouseEnter={() => setHoveredNode(2)} onMouseLeave={() => setHoveredNode(null)}>
-        <div className={`${styles.ring} ${styles.ring1}`} /><div className={`${styles.ring} ${styles.ring2}`} /><div className={`${styles.ring} ${styles.ring3}`} />
-        <FaCode size={26} className={styles.nodeIcon} />
-        <span className={styles.nodeTitle}>{t.nodes.stack}</span>
-      </a>
-
-      <a href="#projects" className={`${styles.node} ${styles.nodeProjects}`} onMouseEnter={() => setHoveredNode(3)} onMouseLeave={() => setHoveredNode(null)}>
-        <div className={`${styles.ring} ${styles.ring1}`} /><div className={`${styles.ring} ${styles.ring2}`} /><div className={`${styles.ring} ${styles.ring3}`} />
-        <FaFolderOpen size={26} className={styles.nodeIcon} />
-        <span className={styles.nodeTitle}>{t.nodes.projects}</span>
-      </a>
-
-      <a href="#contact" className={`${styles.node} ${styles.nodeContact}`} onMouseEnter={() => setHoveredNode(4)} onMouseLeave={() => setHoveredNode(null)}>
-        <div className={`${styles.ring} ${styles.ring1}`} /><div className={`${styles.ring} ${styles.ring2}`} /><div className={`${styles.ring} ${styles.ring3}`} />
-        <FaTerminal size={26} className={styles.nodeIcon} />
-        <span className={styles.nodeTitle}>{t.nodes.contact}</span>
-      </a>
+      {/* PRIMARY HUD NODES (Now triggering the cinematic modal) */}
+      <PrimaryNode 
+        onClick={() => openModal('about', 'top')} 
+        title={t.nodes.about} icon={<FaUser size={26} />} 
+        positionClass={styles.nodeAbout}
+        onMouseEnter={() => setHoveredNode(1)} onMouseLeave={() => setHoveredNode(null)} 
+      />
+      <PrimaryNode 
+        onClick={() => openModal('stack', 'left')} 
+        title={t.nodes.stack} icon={<FaCode size={26} />} 
+        positionClass={styles.nodeStack}
+        onMouseEnter={() => setHoveredNode(2)} onMouseLeave={() => setHoveredNode(null)} 
+      />
+      <PrimaryNode 
+        onClick={() => openModal('projects', 'right')} 
+        title={t.nodes.projects} icon={<FaFolderOpen size={26} />} 
+        positionClass={styles.nodeProjects}
+        onMouseEnter={() => setHoveredNode(3)} onMouseLeave={() => setHoveredNode(null)} 
+      />
+      <PrimaryNode 
+        onClick={() => openModal('contact', 'bottom')} 
+        title={t.nodes.contact} icon={<FaTerminal size={26} />} 
+        positionClass={styles.nodeContact}
+        onMouseEnter={() => setHoveredNode(4)} onMouseLeave={() => setHoveredNode(null)} 
+      />
 
       {/* SECONDARY FLOATING SOCIAL NODES */}
-      <a href="https://instagram.com" target="_blank" rel="noreferrer" className={`${styles.socialWrapper} ${styles.socialInsta}`}>
-        <div className={styles.socialNode}>
-          <div className={`${styles.sRing} ${styles.sRing1}`} /><div className={`${styles.sRing} ${styles.sRing2}`} /><div className={`${styles.sRing} ${styles.sRing3}`} />
-          <FaInstagram size={22} className={`${styles.socialIcon} ${styles.brandInsta}`} />
-        </div>
-      </a>
+      <SocialNode
+        href="https://instagram.com/kirochobansky" icon={<FaInstagram size={22} />} 
+        brandName="Insta" positionClass={styles.socialInsta} 
+      />
+      <SocialNode 
+        href="https://github.com/kirilchobansky" icon={<FaGithub size={22} />} 
+        brandName="Github" positionClass={styles.socialGithub} 
+      />
+      <SocialNode 
+        href="https://linkedin.com/in/kiril-chobansky-57738a306" icon={<FaLinkedin size={22} />} 
+        brandName="Linkedin" positionClass={styles.socialLinkedin} 
+      />
+      <SocialNode 
+        href="mailto:kirilchobansky@gmail.com"  icon={<FaEnvelope size={22} />} 
+        brandName="Gmail" positionClass={styles.socialGmail} 
+      />
 
-      <a href="https://github.com" target="_blank" rel="noreferrer" className={`${styles.socialWrapper} ${styles.socialGithub}`}>
-        <div className={styles.socialNode}>
-          <div className={`${styles.sRing} ${styles.sRing1}`} /><div className={`${styles.sRing} ${styles.sRing2}`} /><div className={`${styles.sRing} ${styles.sRing3}`} />
-          <FaGithub size={22} className={`${styles.socialIcon} ${styles.brandGithub}`} />
-        </div>
-      </a>
-
-      <a href="https://linkedin.com" target="_blank" rel="noreferrer" className={`${styles.socialWrapper} ${styles.socialLinkedin}`}>
-        <div className={styles.socialNode}>
-          <div className={`${styles.sRing} ${styles.sRing1}`} /><div className={`${styles.sRing} ${styles.sRing2}`} /><div className={`${styles.sRing} ${styles.sRing3}`} />
-          <FaLinkedin size={22} className={`${styles.socialIcon} ${styles.brandLinkedin}`} />
-        </div>
-      </a>
-
-      <a href="mailto:example@gmail.com" className={`${styles.socialWrapper} ${styles.socialGmail}`}>
-        <div className={styles.socialNode}>
-          <div className={`${styles.sRing} ${styles.sRing1}`} /><div className={`${styles.sRing} ${styles.sRing2}`} /><div className={`${styles.sRing} ${styles.sRing3}`} />
-          <FaEnvelope size={22} className={`${styles.socialIcon} ${styles.brandGmail}`} />
-        </div>
-      </a>
+      {/* CINEMATIC MODAL SYSTEM */}
+      <SubpageSystem 
+        isOpen={modal.isOpen} 
+        activeId={modal.activeId} 
+        direction={modal.direction} 
+        onClose={closeModal} 
+      />
 
     </div>
   );

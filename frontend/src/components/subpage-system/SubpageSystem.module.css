@@ -1,0 +1,199 @@
+/* SubpageSystem.module.css */
+
+.systemWrapper {
+  font-family: 'Fira Code', monospace;
+}
+
+/* Reference controls (for development testing only) */
+.hubControlsPlaceholder {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  z-index: 10;
+  color: #00ff66;
+  border: 1px dashed #003b17;
+  padding: 10px;
+}
+.hubControlsPlaceholder button {
+  display: block;
+  background: transparent;
+  color: #aaffcc;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  margin: 5px 0;
+  text-align: left;
+}
+
+/* 2. Window Size & Cinematic Layout */
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(5, 8, 12, 0.8); /* Dark translucent background */
+  backdrop-filter: blur(8px); /* Backdrop blur */
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.modalContainer {
+  position: relative;
+  width: 80vw; /* Occupy 80% width */
+  height: 80vh; /* Occupy 80% height */
+  background: rgba(10, 20, 15, 0.95);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+  pointer-events: auto;
+  opacity: 0; /* Starts hidden */
+}
+
+/* 3. Cyberpunk "Broken Connection" Borders */
+.panelFrame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #00ff66;
+  /* Distressed neon green glow that flickers upon entry */
+  box-shadow: 0 0 15px rgba(0, 255, 102, 0.5), inset 0 0 15px rgba(0, 255, 102, 0.2);
+  
+  /* Complex angular corners and gaps (no images) */
+  clip-path: polygon(
+    0% 15px, 15px 0%, 85% 0%, 100% 15px, 
+    100% 70%, 95% 70%, 100% 75%, 100% 85%, 85% 100%, 
+    15% 100%, 0% 85%, 0% 75%, 5% 75%, 0% 70%
+  );
+  animation: panelStabilize 0.6s ease-out 0.1s both; /* Flicker upon entry */
+}
+
+/* Simulated Exposed Wires and Circuitry */
+.brokenWires {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+}
+
+.wire {
+  position: absolute;
+  background: #b87333; /* Copper color */
+  border: 1px solid #003b17;
+  border-radius: 2px;
+}
+
+.wire1 { width: 3px; height: 40px; top: -5px; right: 25px; transform: rotate(15deg); }
+.wire2 { width: 3px; height: 35px; top: -5px; right: 35px; transform: rotate(10deg); }
+
+.wire3 { 
+  width: 4px; height: 50px; top: -5px; right: 45px; transform: rotate(20deg); 
+  background: #00ff66; /* Power wire */
+  box-shadow: 0 0 10px #00ff66;
+}
+
+/* Spark Animation */
+.spark {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #fff, 0 0 20px #00ff66;
+  opacity: 0;
+  animation: electricalSpark 2s infinite linear;
+}
+
+/* 4. Exit Interaction */
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  color: #ff3333; /* Stylized Red for CLOSE */
+  border: 1px solid #ff3333;
+  padding: 5px 10px;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 5;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 80% 100%, 0 100%); /* Broken corner button */
+  transition: all 0.2s;
+}
+
+.closeButton:hover {
+  background: #ff3333;
+  color: #fff;
+  box-shadow: 0 0 15px #ff3333;
+}
+
+.content {
+  padding: 40px;
+  color: #aaffcc;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  color: #00ff66;
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #003b17;
+  text-shadow: 0 0 10px #00ff66;
+}
+
+.bodyText {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* --- KEYFRAME ANIMATIONS --- */
+
+@keyframes panelStabilize {
+  0% { border-color: #003b17; box-shadow: none; opacity: 0.5; }
+  10% { border-color: #00ff66; box-shadow: 0 0 20px #00ff66; opacity: 1; }
+  20% { border-color: #003b17; box-shadow: none; }
+  30% { border-color: #00ff66; box-shadow: 0 0 15px #00ff66; }
+  100% { border-color: #00ff66; box-shadow: 0 0 15px rgba(0, 255, 102, 0.5); opacity: 1; }
+}
+
+@keyframes electricalSpark {
+  0% { transform: scale(0.5); opacity: 0; }
+  5% { transform: scale(1.2); opacity: 1; }
+  10% { transform: scale(0.8); opacity: 0.2; }
+  15% { transform: scale(1); opacity: 0.8; }
+  20% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(0.5); opacity: 0; }
+}
+
+/* --- DIRECTIONAL ENTRY ANIMATIONS --- */
+
+/* TOP (About Me) */
+@keyframes slideInTop { from { transform: translateY(-100vh); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes slideOutTop { from { transform: translateY(0); opacity: 1; } to { transform: translateY(-100vh); opacity: 0; } }
+.top { animation: slideInTop 0.35s ease-out both; }
+.top.exiting { animation: slideOutTop 0.35s ease-in both; }
+
+/* LEFT (Tech Stack) */
+@keyframes slideInLeft { from { transform: translateX(-100vw); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideOutLeft { from { transform: translateX(0); opacity: 1; } to { transform: translateX(-100vw); opacity: 0; } }
+.left { animation: slideInLeft 0.35s ease-out both; }
+.left.exiting { animation: slideOutLeft 0.35s ease-in both; }
+
+/* RIGHT (Projects) */
+@keyframes slideInRight { from { transform: translateX(100vw); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideOutRight { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100vw); opacity: 0; } }
+.right { animation: slideInRight 0.35s ease-out both; }
+.right.exiting { animation: slideOutRight 0.35s ease-in both; }
+
+/* BOTTOM (Contact) */
+@keyframes slideInBottom { from { transform: translateY(100vh); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes slideOutBottom { from { transform: translateY(0); opacity: 1; } to { transform: translateY(100vh); opacity: 0; } }
+.bottom { animation: slideInBottom 0.35s ease-out both; }
+.bottom.exiting { animation: slideOutBottom 0.35s ease-in both; }

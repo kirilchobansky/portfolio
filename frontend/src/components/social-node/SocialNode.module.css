@@ -1,0 +1,65 @@
+.socialWrapper {
+  position: absolute;
+  z-index: 5;
+  transform: translate(-50%, -50%);
+  animation: floatDrift 6s ease-in-out infinite;
+}
+
+.socialWrapper:hover { animation-play-state: paused; }
+
+@keyframes floatDrift {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+  50% { transform: translate(-50%, -50%) translateY(-15px); }
+}
+
+.socialNode {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #021208 0%, #010603 100%);
+  border: 1px solid rgba(0, 255, 102, 0.4);
+  box-shadow: 0 0 10px rgba(0, 255, 102, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.socialNode:hover { transform: scale(1.15); }
+
+.socialIcon {
+  color: var(--neon-green);
+  filter: drop-shadow(0 0 5px var(--neon-green));
+  transition: color 0.3s ease, filter 0.3s ease;
+}
+
+/* Brand Colors */
+.socialWrapper:hover .brandInsta { color: #E1306C; filter: drop-shadow(0 0 8px #E1306C); }
+.socialWrapper:hover .brandGithub { color: #ffffff; filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)); }
+.socialWrapper:hover .brandLinkedin { color: #0077b5; filter: drop-shadow(0 0 8px #0077b5); }
+.socialWrapper:hover .brandGmail { color: #EA4335; filter: drop-shadow(0 0 8px #EA4335); }
+
+.sRing {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  box-sizing: border-box;
+  transition: all 0.4s ease;
+}
+
+.sRing1 { inset: -10px; border: 1.5px solid transparent; border-top: 1.5px solid var(--neon-green); border-bottom: 1.5px dashed var(--neon-green); animation: spin 8s linear infinite; opacity: 0.8; }
+.sRing2 { inset: -18px; border: 1.5px solid transparent; border-left: 1.5px solid var(--neon-green); border-right: 1.5px dotted var(--neon-green); animation: spinReverse 11s linear infinite; opacity: 0.6; }
+.sRing3 { inset: -26px; border: 1.5px solid transparent; border-top: 2px dashed var(--neon-green); border-bottom: 2px solid var(--neon-green); animation: spin 14s linear infinite; opacity: 0.4; }
+
+.socialWrapper:hover .sRing1 { animation-duration: 1.5s; opacity: 1; filter: drop-shadow(0 0 5px var(--neon-green)); }
+.socialWrapper:hover .sRing2 { animation-duration: 2.5s; opacity: 1; filter: drop-shadow(0 0 5px var(--neon-green)); }
+.socialWrapper:hover .sRing3 { animation-duration: 3s; opacity: 0.8; }
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes spinReverse { 0% { transform: rotate(360deg); } 100% { transform: rotate(0deg); } }
+
+@media (max-width: 820px) {
+  .socialWrapper { display: none; }
+}
