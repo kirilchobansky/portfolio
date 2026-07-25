@@ -49,14 +49,6 @@ export default function SubpageSystem({ isOpen, activeId, direction, onClose }: 
         onClick={(e) => e.stopPropagation()}
       >
         <div className={styles.panelFrame}>
-          <div className={styles.brokenWires}>
-            <div className={`${styles.wire} ${styles.wire1}`} />
-            <div className={`${styles.wire} ${styles.wire2}`} />
-            <div className={`${styles.wire} ${styles.wire3}`}>
-              <span className={styles.spark} />
-            </div>
-          </div>
-
           <button className={styles.closeButton} onClick={handleClose}>
             <span className={styles.closeGlitch}>[ CLOSE ]</span>
           </button>

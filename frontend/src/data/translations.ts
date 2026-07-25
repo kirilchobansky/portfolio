@@ -5,9 +5,15 @@ export const translations = {
     
     // 1. ABOUT CONTENT
     aboutSection: {
-      bio: "Computer Science student at Sofia University (FMI). Passionate about building fast, reliable software architecture from low-level systems to responsive frontends.",
-      edu1: "B.Sc. Computer Science - FMI, Sofia University",
-      edu2: "NPMG - National High School of Mathematics and Science"
+      intro: "I am Kiril Chobansky—a 20-year-old student driven by creativity and the ambition to build highly optimized, impactful systems. Chasing the title software engineer.",
+      eduLabel: "🎓 Education",
+      eduText: "B.Sc. Computer Science @ Sofia University (FMI) | Alumni of NPMG",
+      passionLabel: "💡 The Drive",
+      passionText: "Chasing 'big work'. I love architecting fast, clean systems from the ground up and never stop iterating. I do not encourage unfinished work and full of hot air conversations at work!",
+      hobbiesLabel: "🏔️ Beyond the Screen",
+      hobbiesText: "Advanced skier BPSI instructor, heavy strategy board game enthusiast, and dedicated to strength conditioning.",
+      extraLabel: "🏎️ Interests",
+      extraText: "Traveling, fitness, and strict lifestyle optimization."
     },
 
     // 2. TECH STACK CONTENT
@@ -40,9 +46,15 @@ export const translations = {
     nodes: { about: "ЗА_МЕН", projects: "ПРОЕКТИ", stack: "ТЕХНОЛОГИИ", contact: "КОНТАКТИ" },
     
     aboutSection: {
-      bio: "Студент по Компютърни науки в Софийски университет (ФМИ). Ориентиран към изграждането на бърза и надеждна софтуерна архитектура - от системи на ниско ниво до responsive потребителски интерфейси.",
-      edu1: "Бакалавър Компютърни науки - ФМИ, СУ",
-      edu2: "НПМГ - Национална природо-математическа гимназия"
+      intro: "Аз съм Кирил Чобански — 20-годишен студент, носещ креативност и амбицията да изграждам високооптимизирани системи. Преследвайки титлата софтуерен инженер!",
+      eduLabel: "🎓 Образование",
+      eduText: "Бакалавър Компютърни науки @ ФМИ, СУ | Възпитаник на НПМГ",
+      passionLabel: "💡 Мотивация",
+      passionText: "Преследвам 'голямата работа'. Обичам да проектирам бързи и изчистени системи от нулата. Не обичам недовършената работа и не подкрепям празните приказки на работното място.",
+      hobbiesLabel: "🏔️ Извън екрана",
+      hobbiesText: "Страстен скиор от малък. BPSI инструктор по ски, фен на стратегически настолни игри и тренировки.",
+      extraLabel: "🏎️ Интереси",
+      extraText: "Пътуването не го отказвам както и стриктна оптимизация на начина на живот."
     },
 
     stackSection: {

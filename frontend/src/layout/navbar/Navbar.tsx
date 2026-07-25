@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
+// import { useTheme } from '../../context/ThemeContext'; // <-- Import Theme Context
 import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram } from 'react-icons/fa';
 import styles from './Navbar.module.css';
 
@@ -10,7 +11,6 @@ export default function Navbar(): React.JSX.Element {
     <nav className={styles.navbar}>
       <div className={styles.container}>
         
-        {/* Left: System Status */}
         <div className={styles.status}>
           <span className={styles.statusDot} />
           <span className={styles.statusText}>{t.nav.status}</span>
@@ -53,13 +53,19 @@ export default function Navbar(): React.JSX.Element {
             <FaInstagram size={18} />
           </a>
         </div>
-
-        {/* Right: Language Switcher */}
-        <button onClick={toggleLanguage} className={styles.langBtn}>
-          [{t.nav.toggleLang}]
-        </button>
+        
+        {/* Buttons on the right side */}
+        <div style={{ display: 'flex', gap: '10px' }}>
+          {/* <button onClick={toggleTheme} className={styles.langBtn}>
+            [{theme === 'cyber' ? 'MINIMAL' : 'CYBER'}]
+          </button> */}
+          <button onClick={toggleLanguage} className={styles.langBtn}>
+            [{t.nav.toggleLang}]
+          </button>
+        </div>
 
       </div>
     </nav>
   );
 }
+        
