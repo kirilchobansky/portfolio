@@ -55,3 +55,9 @@ body {
   );
   background-size: 100% 4px;
 }
+
+.main-root {
+   height: '100vh';
+   overflow: 'hidden'; 
+   position: 'relative';
+}

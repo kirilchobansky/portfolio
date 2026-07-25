@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styles from './SubpageSystem.module.css';
-import { useLanguage } from '../../context/LanguageContext';
+
+import AboutContent from '../subpages/about-content/AboutContent';
+import StackContent from '../subpages/stack-content/StackContent';
+import ContactContent from '../subpages/contact-content/ContactContent';
+import ProjectsContent from '../subpages/projects-content/ProjectsContent';
 
 type EntryDirection = 'top' | 'left' | 'right' | 'bottom';
 
@@ -12,7 +16,6 @@ interface SubpageSystemProps {
 }
 
 export default function SubpageSystem({ isOpen, activeId, direction, onClose }: SubpageSystemProps): React.JSX.Element | null {
-  const { t } = useLanguage();
   const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
@@ -25,6 +28,16 @@ export default function SubpageSystem({ isOpen, activeId, direction, onClose }: 
       onClose();
       setIsExiting(false);
     }, 350); 
+  };
+
+  const renderContent = () => {
+    switch (activeId) {
+      case 'about': return <AboutContent />;
+      case 'stack': return <StackContent />;
+      case 'projects': return <ProjectsContent />;
+      case 'contact': return <ContactContent />;
+      default: return null;
+    }
   };
 
   if (!isOpen && !isExiting) return null;
@@ -52,12 +65,11 @@ export default function SubpageSystem({ isOpen, activeId, direction, onClose }: 
             <h1 className={styles.title}>
               TERMINAL: // {activeId?.toUpperCase()}
             </h1>
+            
             <div className={styles.bodyText}>
-              {activeId === 'about' && <p>{t.aboutSection.bio}</p>}
-              {activeId === 'projects' && <p>Loading project list...</p>}
-              {activeId === 'stack' && <p>Fetching tech array...</p>}
-              {activeId === 'contact' && <p>Initializing comms channel...</p>}
+              {renderContent()}
             </div>
+
           </div>
         </div>
       </div>

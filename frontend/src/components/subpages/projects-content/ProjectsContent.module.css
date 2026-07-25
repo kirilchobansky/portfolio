@@ -1,0 +1,26 @@
+.projectsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.projectTitle {
+  color: var(--hud-green);
+  margin-bottom: 0.5rem;
+}
+
+.projectDesc {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.repoLink {
+  color: #aaffcc;
+  text-decoration: none;
+  font-weight: bold;
+  transition: text-shadow 0.2s ease;
+}
+
+.repoLink:hover {
+  text-shadow: 0 0 8px var(--hud-green-glow);
+}

@@ -1,0 +1,5 @@
+.homeContainer {
+  padding-top: 60px; /* Accounts for the fixed navbar */
+  height: 100%;
+  width: 100%;
+}

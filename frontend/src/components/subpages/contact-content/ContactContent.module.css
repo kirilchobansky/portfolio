@@ -1,0 +1,7 @@
+.contactContainer {
+  line-height: 2;
+}
+
+.emailText {
+  color: var(--hud-green);
+}

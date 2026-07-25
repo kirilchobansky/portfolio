@@ -1,18 +1,15 @@
 import './App.css';
-import MainHub from './components/main-hub/MainHub';
-import MatrixRain from './components/MatrixRain';
-import Navbar from './components/navbar/Navbar';
+import MatrixRain from './layout/matrix-rain/MatrixRain';
+import Navbar from './layout/navbar/Navbar';
+import Home from './pages/home/Home';
+
 
 function App() {
   return (
-    <div style={{ height: '100vh', overflow: 'hidden', position: 'relative' }}>
+    <div className='main-root'>
       <MatrixRain />
-      
       <Navbar />
-
-      <main style={{ paddingTop: '60px' }}>
-        <MainHub />
-      </main>
+      <Home />
     </div>
   );
 }
