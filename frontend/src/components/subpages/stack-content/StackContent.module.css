@@ -1,3 +1,67 @@
 .stackContainer {
-  line-height: 2.2;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.categoryCard {
+  background: rgba(17, 100, 102, 0.05); /* Faint teal background */
+  border: 1px solid rgba(217, 176, 140, 0.15); /* Subtle tan border */
+  padding: 1.5rem 1.8rem;
+  border-radius: 6px;
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.categoryCard:hover {
+  transform: translateY(-2px);
+  border-color: var(--hud-green); /* Peach */
+  background: rgba(17, 100, 102, 0.12);
+}
+
+.header {
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(17, 100, 102, 0.3);
+  padding-bottom: 0.75rem;
+}
+
+.categoryTitle {
+  color: var(--hud-green);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+}
+
+.categoryDesc {
+  color: var(--hud-muted);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* --- THE CHIP SYSTEM --- */
+.chipGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.chip {
+  background: rgba(17, 100, 102, 0.15); /* Slightly darker teal for contrast */
+  color: var(--hud-text);
+  border: 1px solid var(--hud-green-dark); /* Teal border */
+  padding: 6px 14px;
+  border-radius: 20px; /* Pill shape */
+  font-size: 0.85rem;
+  font-family: var(--font-tech);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: default;
+  transition: all 0.3s ease;
+}
+
+.chip:hover {
+  background: var(--hud-green-dark);
+  color: var(--hud-bg);
+  border-color: var(--hud-green);
+  box-shadow: 0 0 10px var(--hud-green-faint);
+  transform: scale(1.05);
 }

@@ -16,9 +16,23 @@ export const translations = {
     },
 
     stackSection: {
-      core: "Core & Systems: C++, CMake, SDL3, Docker, Tauri",
-      web: "Web Frontend: React, TypeScript, Vite",
-      backend: "Backend & DB: Node.js, Frappe"
+      categories: [
+        {
+          title: "⚙️ Systems & Backend",
+          desc: "Core logic and low-level architecture.",
+          skills: ["C++", "CMake", "Node.js", "Express", "SDL3"]
+        },
+        {
+          title: "🎨 Frontend & Web",
+          desc: "Interactive, type-safe user interfaces.",
+          skills: ["React", "TypeScript", "Angular", "Vite", "HTML/CSS"]
+        },
+        {
+          title: "🗄️ Architecture & Data",
+          desc: "Deployment, databases, and local environments.",
+          skills: ["Docker", "Tauri", "Frappe", "MongoDB", "REST APIs"]
+        }
+      ]
     },
 
     projectsSection: {
@@ -87,9 +101,23 @@ export const translations = {
     },
 
     stackSection: {
-      core: "Ядро и Системи: C++, CMake, SDL3, Docker, Tauri",
-      web: "Уеб Frontend: React, TypeScript, Vite",
-      backend: "Backend и Бази данни: Node.js, Frappe"
+      categories: [
+        {
+          title: "⚙️ Системи & Backend",
+          desc: "Основна логика и архитектура на ниско ниво.",
+          skills: ["C++", "CMake", "Node.js", "Express", "SDL3"]
+        },
+        {
+          title: "🎨 Frontend & Web",
+          desc: "Интерактивни потребителски интерфейси.",
+          skills: ["React", "Angular", "TypeScript", "Vite", "HTML/CSS"]
+        },
+        {
+          title: "🗄️ Архитектура & Данни",
+          desc: "Среди за разработка и бази данни.",
+          skills: ["Docker", "Tauri", "Frappe", "MongoDB", "REST APIs"]
+        }
+      ]
     },
 
     projectsSection: {

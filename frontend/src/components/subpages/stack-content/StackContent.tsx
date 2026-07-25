@@ -7,9 +7,24 @@ export default function StackContent(): React.JSX.Element {
 
   return (
     <div className={styles.stackContainer}>
-      <p><strong>{t.stackSection.core}</strong></p>
-      <p><strong>{t.stackSection.web}</strong></p>
-      <p><strong>{t.stackSection.backend}</strong></p>
+      {t.stackSection.categories.map((category, index) => (
+        <div key={index} className={styles.categoryCard}>
+          
+          <div className={styles.header}>
+            <h3 className={styles.categoryTitle}>{category.title}</h3>
+            <p className={styles.categoryDesc}>{category.desc}</p>
+          </div>
+
+          <div className={styles.chipGrid}>
+            {category.skills.map((skill, idx) => (
+              <span key={idx} className={styles.chip}>
+                {skill}
+              </span>
+            ))}
+          </div>
+
+        </div>
+      ))}
     </div>
   );
 }
