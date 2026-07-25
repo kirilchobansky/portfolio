@@ -3,7 +3,6 @@ export const translations = {
     nav: { status: "SYSTEM ONLINE", toggleLang: "BG" },
     nodes: { about: "ABOUT_ME", projects: "PROJECTS", stack: "TECH_STACK", contact: "COMMS_LINK" },
     
-    // 1. ABOUT CONTENT
     aboutSection: {
       intro: "I am Kiril Chobansky—a 20-year-old student driven by creativity and the ambition to build highly optimized, impactful systems. Chasing the title software engineer.",
       eduLabel: "🎓 Education",
@@ -16,14 +15,12 @@ export const translations = {
       extraText: "Traveling, fitness, and strict lifestyle optimization."
     },
 
-    // 2. TECH STACK CONTENT
     stackSection: {
       core: "Core & Systems: C++, CMake, SDL3, Docker, Tauri",
       web: "Web Frontend: React, TypeScript, Vite",
       backend: "Backend & DB: Node.js, Frappe"
     },
 
-    // 3. PROJECTS CONTENT
     projectsSection: {
       list: [
         {
@@ -59,11 +56,18 @@ export const translations = {
       ]
     },
 
-    // 4. CONTACT CONTENT
     contactSection: {
-      location: "Location: Sofia, Bulgaria",
-      emailLabel: "Direct Comm: kirilchobansky@gmail.com"
-    }
+      locationLabel: "📍 Base of Operations",
+      locationText: "Sofia, Krasno Selo — Highly connected to the entire city.",
+      formTitle: "DIRECT MSG",
+      namePlaceholder: "YOUR_NAME",
+      emailPlaceholder: "YOUR_EMAIL",
+      msgPlaceholder: "ENTER_MESSAGE...",
+      sendBtn: "[ TRANSMIT ]",
+      submittingText: "[ TRANSMITTING... ]",
+      successMessage: "MESSAGE_RECEIVED. I will get back to you shortly.",
+      errorMessage: "TRANSMISSION_FAILED. Please try again later."
+    },
   },
   
   bg: {
@@ -124,8 +128,16 @@ export const translations = {
     },
 
     contactSection: {
-      location: "Локация: София, България",
-      emailLabel: "Директна връзка: kirilchobansky@gmail.com"
-    }
+      locationLabel: "📍 Локация",
+      locationText: "София, Красно Село — С бърз достъп до всяка точка на града.",
+      formTitle: "ДИРЕКТНО СЪОБЩЕНИЕ",
+      namePlaceholder: "ТВОЕТО_ИМЕ",
+      emailPlaceholder: "ТВОЯТ_ИМЕЙЛ",
+      msgPlaceholder: "ВЪВЕДИ_СЪОБЩЕНИЕ...",
+      sendBtn: "[ ИЗПРАТИ ]",
+      submittingText: "[ ИЗПРАЩАНЕ... ]",
+      successMessage: "СЪОБЩЕНИЕТО Е ПОЛУЧЕНО. Ще се свържа с вас скоро.",
+      errorMessage: "ГРЕШКА ПРИ ИЗПРАЩАНЕ. Моля, опитайте по-късно."
+    },
   }
 };
