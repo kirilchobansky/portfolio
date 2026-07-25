@@ -25,13 +25,38 @@ export const translations = {
 
     // 3. PROJECTS CONTENT
     projectsSection: {
-      proj1_title: "Vertex Engine",
-      proj1_desc: "Custom C++ desktop graphics and game window framework utilizing CMake and SDL3.",
-      proj2_title: "Enterprise Architecture DB",
-      proj2_desc: "Localized database management environment built with Frappe and Docker to securely track business contracts.",
-      proj3_title: "German-Bulgarian Notebook",
-      proj3_desc: "React application designed to store, translate, and track vocabulary word pairs.",
-      repoText: "[ VIEW_SOURCE ]"
+      list: [
+        {
+          title: "📓 German Vocabulary Notebook",
+          tech: "Tauri // React // TypeScript // DeepL API",
+          bullets: [
+            "Built a lightweight, cross-platform desktop application utilizing the Tauri Store for 100% local data privacy.",
+            "Integrated the DeepL REST API to enable real-time German-to-Bulgarian vocabulary translation."
+          ],
+          repoText: "[ VIEW_SOURCE ]",
+          repoLink: "https://github.com/kirilchobansky/notebook"
+        },
+        {
+          title: "🛒 Yum-Yum Market",
+          tech: "Angular 16 // Node.js // MongoDB // PayPal // Leaflet.js",
+          bullets: [
+            "Developed a full-stack e-commerce app with dynamic tag filtering, search routing, and local shopping cart persistence.",
+            "Implemented secure JWT authentication, custom route guards, and live coordinate mapping via Leaflet.js."
+          ],
+          repoText: "[ VIEW_SOURCE ]",
+          repoLink: "https://github.com/kirilchobansky/yum-yum-market"
+        },
+        {
+          title: "🏛️ Chobansky Design Portal",
+          tech: "React // Node.js // Express // MongoDB // Mongoose // Multer",
+          bullets: [
+            "Created a full-stack registry to catalog and filter architectural, urban, and residential projects.",
+            "Authored reusable custom React hooks (useAuth, useForm) and dynamic React Contexts for secure global states."
+          ],
+          repoText: "[ VIEW_SOURCE ]",
+          repoLink: "https://github.com/kirilchobansky/chobansky-design-business"
+        }
+      ]
     },
 
     // 4. CONTACT CONTENT
@@ -64,13 +89,38 @@ export const translations = {
     },
 
     projectsSection: {
-      proj1_title: "Vertex Engine",
-      proj1_desc: "Собствен C++ десктоп графичен енджин, използващ CMake и SDL3.",
-      proj2_title: "Enterprise Architecture DB",
-      proj2_desc: "Локализирана система за управление на бази данни, изградена с Frappe и Docker за сигурно проследяване на бизнес договори.",
-      proj3_title: "Българо-Немски Речник",
-      proj3_desc: "React приложение, създадено за съхранение, превод и проследяване на речникови двойки.",
-      repoText: "[ ВИЖ_КОДА ]"
+      list: [
+        {
+          title: "📓 Българо-Немски Речник",
+          tech: "Tauri // React // TypeScript // DeepL API",
+          bullets: [
+            "Изградих леко, кросплатформено десктоп приложение, използващо Tauri Store за 100% локална поверителност на данните.",
+            "Интегрирах DeepL REST API за превод на речников запас от немски на български в реално време."
+          ],
+          repoText: "[ ВИЖ_КОДА ]",
+          repoLink: "https://github.com/kirilchobansky/notebook"
+        },
+        {
+          title: "🛒 Yum-Yum Market",
+          tech: "Angular 16 // Node.js // MongoDB // PayPal // Leaflet.js",
+          bullets: [
+            "Разработих full-stack e-commerce приложение с динамично филтриране по тагове, търсене и локално запазване на количката.",
+            "Имплементирах сигурна JWT автентикация, custom route guards и live мапинг на координати чрез Leaflet.js."
+          ],
+          repoText: "[ ВИЖ_КОДА ]",
+          repoLink: "https://github.com/kirilchobansky/yum-yum-market"
+        },
+        {
+          title: "🏛️ Chobansky Design Portal",
+          tech: "React // Node.js // Express // MongoDB // Mongoose // Multer",
+          bullets: [
+            "Създадох full-stack регистър за каталогизиране и филтриране на архитектурни, градоустройствени и жилищни проекти.",
+            "Написах преизползваеми custom React hooks (useAuth, useForm) и динамични React Contexts за сигурен глобален state."
+          ],
+          repoText: "[ ВИЖ_КОДА ]",
+          repoLink: "https://github.com/kirilchobansky/chobansky-design-business"
+        }
+      ]
     },
 
     contactSection: {

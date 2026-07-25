@@ -7,31 +7,35 @@ export default function ProjectsContent(): React.JSX.Element {
 
   return (
     <div className={styles.projectsContainer}>
-      
-      <div>
-        <h3 className={styles.projectTitle}>{t.projectsSection.proj1_title}</h3>
-        <p className={styles.projectDesc}>{t.projectsSection.proj1_desc}</p>
-        <a href="https://github.com/kirilchobansky" target="_blank" rel="noreferrer" className={styles.repoLink}>
-          {t.projectsSection.repoText}
-        </a>
-      </div>
+      {t.projectsSection.list.map((project, index) => (
+        <div key={index} className={styles.projectCard}>
+          
+          <div className={styles.cardHeader}>
+            <h3 className={styles.projectTitle}>{project.title}</h3>
+            <span className={styles.techStack}>{project.tech}</span>
+          </div>
 
-      <div>
-        <h3 className={styles.projectTitle}>{t.projectsSection.proj2_title}</h3>
-        <p className={styles.projectDesc}>{t.projectsSection.proj2_desc}</p>
-        <a href="https://github.com/kirilchobansky" target="_blank" rel="noreferrer" className={styles.repoLink}>
-          {t.projectsSection.repoText}
-        </a>
-      </div>
+          <ul className={styles.bulletList}>
+            {project.bullets.map((bullet, idx) => (
+              <li key={idx} className={styles.bulletItem}>
+                {bullet}
+              </li>
+            ))}
+          </ul>
 
-      <div>
-        <h3 className={styles.projectTitle}>{t.projectsSection.proj3_title}</h3>
-        <p className={styles.projectDesc}>{t.projectsSection.proj3_desc}</p>
-        <a href="https://github.com/kirilchobansky" target="_blank" rel="noreferrer" className={styles.repoLink}>
-          {t.projectsSection.repoText}
-        </a>
-      </div>
+          <div className={styles.cardFooter}>
+            <a 
+              href={project.repoLink} 
+              target="_blank" 
+              rel="noreferrer" 
+              className={styles.repoBtn}
+            >
+              {project.repoText}
+            </a>
+          </div>
 
+        </div>
+      ))}
     </div>
   );
 }
