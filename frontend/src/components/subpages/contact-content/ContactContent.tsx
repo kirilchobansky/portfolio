@@ -15,7 +15,7 @@ export default function ContactContent(): React.JSX.Element {
     const data = new FormData(form);
 
     try {
-      const response = await fetch("https://formspree.io/f/YOUR_FORMSPREE_ID", {
+      const response = await fetch("https://formspree.io/f/mwvgwaoe", {
         method: "POST",
         body: data,
         headers: {
@@ -25,7 +25,7 @@ export default function ContactContent(): React.JSX.Element {
       
       if (response.ok) {
         setStatus('success');
-        form.reset(); // Clears the inputs
+        form.reset(); 
       } else {
         setStatus('error');
       }
@@ -40,7 +40,6 @@ export default function ContactContent(): React.JSX.Element {
       <div className={styles.leftCol}>
         <h3 className={styles.sectionTitle}>{t.contactSection.formTitle}</h3>
         
-        {/* We removed the action attribute and added onSubmit */}
         <form onSubmit={handleSubmit} className={styles.contactForm}>
           <input 
             type="text" name="name" 
@@ -57,8 +56,7 @@ export default function ContactContent(): React.JSX.Element {
             placeholder={t.contactSection.msgPlaceholder} 
             className={styles.textArea} required 
           />
-          
-          {/* Conditional Messaging */}
+
           {status === 'success' && <p className={styles.successMsg}>{t.contactSection.successMessage}</p>}
           {status === 'error' && <p className={styles.errorMsg}>{t.contactSection.errorMessage}</p>}
           
