@@ -11,15 +11,13 @@ export const translations = {
     },
 
     aboutSection: {
-      intro: "I am Kiril Chobansky—a 20-year-old student driven by creativity and the ambition to build highly optimized, impactful systems. Chasing the title software engineer.",
+      intro: "I am a Computer Science student at Sofia University (FMI). My focus is split between low-level system mechanics in C++ and building responsive, full-stack web applications with React, TypeScript, and Node.js.",
       eduLabel: "🎓 Education",
       eduText: "B.Sc. Computer Science @ Sofia University (FMI) | Alumni of NPMG",
       passionLabel: "💡 The Drive",
-      passionText: "Chasing 'big work'. I love architecting fast, clean systems from the ground up and never stop iterating. I do not encourage unfinished work and full of hot air conversations at work! Fan of AI because you don't use it - you fall behind.",
+      passionText: "I love architecting fast, clean systems from the ground up and never stop iterating. I do not encourage unfinished work and full of hot air conversations at work! Fan of AI because you don't use it - you fall behind.",
       hobbiesLabel: "🏔️ Beyond the Screen",
-      hobbiesText: "Advanced skier BPSI instructor, heavy strategy board game enthusiast, and dedicated to strength conditioning.",
-      extraLabel: "🏎️ Interests",
-      extraText: "Traveling, fitness, and strict lifestyle optimization."
+      hobbiesText: "Love skiing that's why I am BPSI ski instructor, board game enthusiast. Don't mind traveling around the world. Feeling great with daily exercise and healthy food.",
     },
 
     stackSection: {
@@ -27,7 +25,7 @@ export const translations = {
         {
           title: "⚙️ Systems & Backend",
           desc: "Core logic and low-level architecture.",
-          skills: ["C++", "CMake", "Node.js", "Express", "SDL3"]
+          skills: ["C++", "Node.js", "Express"]
         },
         {
           title: "🎨 Frontend & Web",
@@ -37,7 +35,7 @@ export const translations = {
         {
           title: "🗄️ Architecture & Data",
           desc: "Deployment, databases, and local environments.",
-          skills: ["Docker", "Tauri", "Frappe", "MongoDB", "REST APIs"]
+          skills: ["Tauri", "MongoDB", "REST APIs"]
         }
       ]
     },
@@ -69,7 +67,7 @@ export const translations = {
           tech: "React // Node.js // Express // MongoDB // Mongoose // Multer",
           bullets: [
             "Created a full-stack registry to catalog and filter architectural, urban, and residential projects.",
-            "Authored reusable custom React hooks (useAuth, useForm) and dynamic React Contexts for secure global states."
+            "Authored custom React hooks (useAuth, useForm) and dynamic React Contexts for secure global states."
           ],
           repoText: "[ VIEW_SOURCE ]",
           repoLink: "https://github.com/kirilchobansky/chobansky-design-business"
@@ -103,15 +101,13 @@ export const translations = {
     },
     
     aboutSection: {
-      intro: "Аз съм Кирил Чобански — 20-годишен студент, носещ креативност и амбицията да изграждам високооптимизирани системи. Преследвайки титлата софтуерен инженер!",
+      intro: "Аз съм Кирил Чобански — 20-годишен студент. Фокусът ми е разделен между ниско ниво системна механика в C++ и изграждане на адаптивни, пълнофункционални уеб приложения с React, TypeScript и Node.js. Нося креативност със себе си.",
       eduLabel: "🎓 Образование",
       eduText: "Бакалавър Компютърни науки @ ФМИ, СУ | Възпитаник на НПМГ",
       passionLabel: "💡 Работа",
-      passionText: "Преследвам 'голямата работа'. Обичам да проектирам бързи и изчистени системи от нулата. Не обичам недовършената работа и не подкрепям празните приказки на работното място. Подкрепям използването на изкуствен интелект, защото без него изоставаш.",
+      passionText: "Обичам да проектирам бързи и изчистени системи от нулата. Не обичам недовършената работа и не подкрепям празните приказки по време на работа. Подкрепям използването на изкуствен интелект, защото без него изоставаш.",
       hobbiesLabel: "🏔️ Извън екрана",
-      hobbiesText: "Страстен скиор от малък. BPSI инструктор по ски, фен на стратегически настолни игри и тренировки.",
-      extraLabel: "🏎️ Интереси",
-      extraText: "Пътуването не го отказвам както и стриктна оптимизация на начина на живот."
+      hobbiesText: "Страстен скиор от малък, ето защо съм инструктор по ски. Фен на настолните игри. Обичам пътуванията и се чувствам добре с ежедневна актичност и здравословно хранене.",
     },
 
     stackSection: {
@@ -119,7 +115,7 @@ export const translations = {
         {
           title: "⚙️ Системи & Backend",
           desc: "Основна логика и архитектура на ниско ниво.",
-          skills: ["C++", "CMake", "Node.js", "Express", "SDL3"]
+          skills: ["C++", "Node.js", "Express",]
         },
         {
           title: "🎨 Frontend & Web",
@@ -129,7 +125,7 @@ export const translations = {
         {
           title: "🗄️ Архитектура & Данни",
           desc: "Среди за разработка и бази данни.",
-          skills: ["Docker", "Tauri", "Frappe", "MongoDB", "REST APIs"]
+          skills: ["Tauri", "MongoDB", "REST APIs"]
         }
       ]
     },
@@ -140,8 +136,8 @@ export const translations = {
           title: "📓 Българо-Немски Речник",
           tech: "Tauri // React // TypeScript // DeepL API",
           bullets: [
-            "Изградих леко, кросплатформено десктоп приложение, използващо Tauri Store за 100% локална поверителност на данните.",
-            "Интегрирах DeepL REST API за превод на речников запас от немски на български в реално време."
+            "Изградих леко, десктоп приложение, използващо Tauri Store за 100% локална поверителност на данните.",
+            "Интегрирах DeepL REST API за превод на думи от немски на български в реално време."
           ],
           repoText: "[ ВИЖ_КОДА ]",
           repoLink: "https://github.com/kirilchobansky/notebook"
@@ -160,8 +156,8 @@ export const translations = {
           title: "🏛️ Chobansky Design Portal",
           tech: "React // Node.js // Express // MongoDB // Mongoose // Multer",
           bullets: [
-            "Създадох full-stack регистър за каталогизиране и филтриране на архитектурни, градоустройствени и жилищни проекти.",
-            "Написах преизползваеми custom React hooks (useAuth, useForm) и динамични React Contexts за сигурен глобален state."
+            "Създадох full-stack регистър за каталогизиране и филтриране на различни архитектурни проекти.",
+            "Написах custom React hooks (useAuth, useForm) и динамични React Contexts за сигурен глобален state."
           ],
           repoText: "[ ВИЖ_КОДА ]",
           repoLink: "https://github.com/kirilchobansky/chobansky-design-business"
