@@ -14,6 +14,78 @@
   background-color: transparent; 
 }
 
+.topIntroBlock {
+  position: absolute;
+  top: 12%; 
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 3;
+  pointer-events: none; 
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  animation: panelFadeIn 0.8s ease-out forwards;
+}
+
+.introGreeting {
+  color: var(--hud-text); 
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin: 0;
+  text-shadow: 0 0 15px rgba(209, 232, 226, 0.2);
+}
+
+.introRole {
+  color: var(--hud-green); 
+  font-family: var(--font-tech);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.sideMissionBlock {
+  position: absolute;
+  width: 300px;
+  z-index: 3;
+  pointer-events: none;
+  animation: panelFadeIn 1.2s ease-out forwards;
+}
+
+.leftShoulder {
+  top: 30%; 
+  left: 28%; 
+}
+
+.rightShoulder {
+  top: 30%; 
+  right: 28%; 
+}
+
+.introMissionLeft {
+  color: var(--hud-text); 
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+  border-left: 2px solid var(--hud-green-dark); 
+  padding-left: 15px;
+  opacity: 0.8;
+  text-align: left;
+}
+
+.introMissionRight {
+  color: var(--hud-text); 
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+  border-right: 2px solid var(--hud-green-dark); 
+  padding-right: 15px;
+  opacity: 0.8;
+  text-align: right;
+}
+
 .centerAvatar {
   position: absolute;
   z-index: 2;
@@ -38,7 +110,7 @@
 .nodeProjects { top: 30%; left: 80%; } 
 .nodeContact  { top: 70%; left: 75%; } 
 
-.socialInsta    { top: 18%; left: 45%; animation-duration: 5.5s; animation-delay: 0s; }
+.socialInsta    { top: 14%; left: 68%; animation-duration: 5.5s; animation-delay: 0s; }
 .socialGithub   { top: 85%; left: 45%; animation-duration: 7s;   animation-delay: -2s; }
 .socialLinkedin { top: 50%; left: 92%; animation-duration: 6s;   animation-delay: -1s; }
 .socialGmail    { top: 45%; left: 8%;  animation-duration: 8s;   animation-delay: -3s; }
@@ -47,14 +119,57 @@
   .hubContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 1.5rem;
-    padding: 2rem;
+    /* 3 'auto' rows for the text blocks to stack naturally, then 1fr for the nodes */
+    grid-template-rows: auto auto auto 1fr 1fr; 
+    gap: 1rem;
+    padding: 2rem 1rem;
     height: 100vh;
     align-content: center;
     justify-items: center;
   }
+
+  /* 1. Main Title & Role */
+  .topIntroBlock {
+    grid-column: 1 / -1; /* Spans full width across both node columns */
+    position: relative;
+    top: 0;
+    transform: none;
+    left: 0;
+    margin-bottom: 0.5rem;
+    z-index: 10;
+  }
   
+  /* 2. Shared styling for both shoulder text wrappers */
+  .sideMissionBlock {
+    grid-column: 1 / -1; /* Spans full width */
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: 0; /* Strip margins so they can touch */
+    z-index: 10;
+  }
+
+  /* 3. Strip borders and force center alignment for both texts */
+  .introMissionLeft, .introMissionRight { 
+    border: none; 
+    padding: 0 1rem; 
+    text-align: center;
+    text-align-last: center; /* Ensures the last line of the justify doesn't look weird */
+    margin: 0; 
+  }
+  
+  /* 4. A tiny margin just to simulate normal line-height between the two blocks */
+  .rightShoulder {
+    margin-top: 0.25rem;
+  }
+  
+  /* Typography adjustments */
+  .introGreeting { font-size: 1.8rem; }
+  .introRole { font-size: 0.85rem; }
+  
+  /* Background Avatar */
   .centerAvatar { 
     position: absolute; 
     top: 50%;

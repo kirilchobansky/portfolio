@@ -2,13 +2,20 @@ export const translations = {
   en: {
     nav: { status: "SYSTEM ONLINE", toggleLang: "BG" },
     nodes: { about: "ABOUT_ME", projects: "PROJECTS", stack: "TECH_STACK", contact: "COMMS_LINK" },
-    
+
+    hubIntro: {
+      greeting: "HI, I'M KIRIL CHOBANSKY",
+      role: "CS STUDENT & SOFTWARE ENGINEER",
+      missionLeft: "Bridging the gap between low-level system architecture and modern web technologies. I build fast, scalable software.",
+      missionRight: "Currently pursuing my Computer Science degree at Sofia University (FMI). Ready to join a professional engineering team."
+    },
+
     aboutSection: {
       intro: "I am Kiril Chobansky—a 20-year-old student driven by creativity and the ambition to build highly optimized, impactful systems. Chasing the title software engineer.",
       eduLabel: "🎓 Education",
       eduText: "B.Sc. Computer Science @ Sofia University (FMI) | Alumni of NPMG",
       passionLabel: "💡 The Drive",
-      passionText: "Chasing 'big work'. I love architecting fast, clean systems from the ground up and never stop iterating. I do not encourage unfinished work and full of hot air conversations at work!",
+      passionText: "Chasing 'big work'. I love architecting fast, clean systems from the ground up and never stop iterating. I do not encourage unfinished work and full of hot air conversations at work! Fan of AI because you don't use it - you fall behind.",
       hobbiesLabel: "🏔️ Beyond the Screen",
       hobbiesText: "Advanced skier BPSI instructor, heavy strategy board game enthusiast, and dedicated to strength conditioning.",
       extraLabel: "🏎️ Interests",
@@ -87,13 +94,20 @@ export const translations = {
   bg: {
     nav: { status: "СИСТЕМАТА Е ОНЛАЙН", toggleLang: "EN" },
     nodes: { about: "ЗА_МЕН", projects: "ПРОЕКТИ", stack: "ТЕХНОЛОГИИ", contact: "КОНТАКТИ" },
+
+    hubIntro: {
+      greeting: "ЗДРАВЕЙ, АЗ СЪМ КИРИЛ ЧОБАНСКИ",
+      role: "СТУДЕНТ ПО КН & СОФТУЕРЕН ИНЖЕНЕР",
+      missionLeft: "Свързвам системната архитектура на ниско ниво с модерните уеб технологии. Изграждам бърз и мащабируем софтуер.",
+      missionRight: "Студент по Компютърни науки във ФМИ (Софийски университет). Активно търся реализация в професионален инженерен екип."
+    },
     
     aboutSection: {
       intro: "Аз съм Кирил Чобански — 20-годишен студент, носещ креативност и амбицията да изграждам високооптимизирани системи. Преследвайки титлата софтуерен инженер!",
       eduLabel: "🎓 Образование",
       eduText: "Бакалавър Компютърни науки @ ФМИ, СУ | Възпитаник на НПМГ",
-      passionLabel: "💡 Мотивация",
-      passionText: "Преследвам 'голямата работа'. Обичам да проектирам бързи и изчистени системи от нулата. Не обичам недовършената работа и не подкрепям празните приказки на работното място.",
+      passionLabel: "💡 Работа",
+      passionText: "Преследвам 'голямата работа'. Обичам да проектирам бързи и изчистени системи от нулата. Не обичам недовършената работа и не подкрепям празните приказки на работното място. Подкрепям използването на изкуствен интелект, защото без него изоставаш.",
       hobbiesLabel: "🏔️ Извън екрана",
       hobbiesText: "Страстен скиор от малък. BPSI инструктор по ски, фен на стратегически настолни игри и тренировки.",
       extraLabel: "🏎️ Интереси",
