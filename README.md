@@ -2,7 +2,7 @@
 
 My personal developer portfolio website highlighting my projects, technical stack, and background as a Computer Science student at Sofia University (FMI).
 
-🚀 **Live Site:** [https://yourname.vercel.app](https://yourname.vercel.app)
+🚀 **Live Site:** [https://kirilchobansky.com/](https://kirilchobansky.com/)
 
 ---
 
@@ -18,7 +18,7 @@ My personal developer portfolio website highlighting my projects, technical stac
 
 ```bash
 # Clone the repository
-git clone [https://github.com/yourusername/portfolio.git](https://github.com/yourusername/portfolio.git)
+git clone [https://github.com/kirilchobansky/portfolio.git](https://github.com/kirilchobansky/portfolio.git)
 
 # Navigate into directory
 cd portfolio
