@@ -62,10 +62,14 @@
 .cardFooter {
   margin-top: 0.5rem;
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
   justify-content: flex-start;
 }
 
-.repoBtn {
+.repoBtn,
+.demoBtn,
+.downloadBtn {
   display: inline-block;
   background: transparent;
   color: var(--hud-green);
@@ -78,9 +82,12 @@
   border-radius: 2px;
   transition: all 0.3s ease;
   cursor: pointer;
+  white-space: nowrap;
 }
 
-.repoBtn:hover {
+.repoBtn:hover,
+.demoBtn:hover,
+.downloadBtn:hover {
   background: var(--hud-green-dark);
   color: var(--hud-text);
   border-color: var(--hud-green);

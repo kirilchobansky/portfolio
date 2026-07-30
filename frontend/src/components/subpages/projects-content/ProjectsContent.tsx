@@ -24,14 +24,36 @@ export default function ProjectsContent(): React.JSX.Element {
           </ul>
 
           <div className={styles.cardFooter}>
-            <a 
-              href={project.repoLink} 
-              target="_blank" 
-              rel="noreferrer" 
-              className={styles.repoBtn}
-            >
-              {project.repoText}
-            </a>
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.repoBtn}
+              >
+                {t.projectsSection.actions.source}
+              </a>
+            )}
+            {project.demoUrl && (
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.demoBtn}
+              >
+                {t.projectsSection.actions.demo}
+              </a>
+            )}
+            {project.downloadUrl && (
+              <a
+                href={project.downloadUrl}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.downloadBtn}
+              >
+                {t.projectsSection.actions.download}
+              </a>
+            )}
           </div>
 
         </div>
