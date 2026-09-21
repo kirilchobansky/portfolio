@@ -4,6 +4,7 @@ export interface Project {
   bullets: string[];
   githubUrl?: string;
   demoUrl?: string;
+  demoNote?: string;
   downloadUrl?: string;
 }
 
@@ -68,15 +69,14 @@ export const translations = {
       },
       list: [
         {
-          title: "📓 German Vocabulary Notebook",
-          tech: "Tauri // React // TypeScript // DeepL API",
+          title: "🌍 Zemya",
+          tech: "React // TypeScript // React Router // Vite // HTML Canvas // IndexedDB // Vercel",
           bullets: [
-            "Built a lightweight, cross-platform desktop application utilizing the Tauri Store for 100% local data privacy.",
-            "Integrated the DeepL REST API to enable real-time German-to-Bulgarian vocabulary translation.",
+            "An interactive atlas for learning world geography: typed, timed quizzes for every country, flag and capital, filtered by continent, with spaced repetition so the answers stick.",
+            "197 countries on a custom-drawn world map, with no account needed. Built with AI coding tools: I designed the product, made the architecture and data decisions, and tested every feature by using it, while Claude wrote the code.",
           ],
-          githubUrl: "https://github.com/kirilchobansky/notebook",
-          downloadUrl:
-            "https://github.com/kirilchobansky/notebook/releases/download/v1.1/notebook_0.1.0_x64-setup.exe",
+          githubUrl: "https://github.com/kirilchobansky/zemya",
+          demoUrl: "https://zemya.study",
         },
         {
           title: "🛒 Yum-Yum Market",
@@ -87,6 +87,19 @@ export const translations = {
           ],
           githubUrl: "https://github.com/kirilchobansky/yum-yum-market",
           demoUrl: "https://yum-yum-market.vercel.app",
+          demoNote:
+            "Free hosting: the server sleeps when idle, so the first load can take up to a minute while it wakes up.",
+        },
+        {
+          title: "📓 German Vocabulary Notebook",
+          tech: "Tauri // React // TypeScript // DeepL API",
+          bullets: [
+            "Built a lightweight, cross-platform desktop application utilizing the Tauri Store for 100% local data privacy.",
+            "Integrated the DeepL REST API to enable real-time German-to-Bulgarian vocabulary translation.",
+          ],
+          githubUrl: "https://github.com/kirilchobansky/notebook",
+          downloadUrl:
+            "https://github.com/kirilchobansky/notebook/releases/download/v1.1/notebook_0.1.0_x64-setup.exe",
         },
         {
           title: "🏛️ Chobansky Design Portal",
@@ -192,6 +205,8 @@ export const translations = {
           ],
           githubUrl: "https://github.com/kirilchobansky/yum-yum-market",
           demoUrl: "https://TODO-yum-yum-market-demo-url.example.com",
+          demoNote:
+            "Безплатен хостинг: сървърът заспива при неактивност, затова първото зареждане може да отнеме до минута, докато се събуди.",
         },
         {
           title: "🏛️ Chobansky Design Portal",
@@ -202,6 +217,16 @@ export const translations = {
           ],
           githubUrl:
             "https://github.com/kirilchobansky/chobansky-design-business",
+        },
+        {
+          title: "🌍 Zemya",
+          tech: "React // TypeScript // React Router // Vite // HTML Canvas // IndexedDB // Vercel",
+          bullets: [
+            "Интерактивен атлас за изучаване на световната география: тестове с писане на отговор и засичане на времето за всяка държава, знаме и столица, с филтър по континент и интервални повторения, за да се запомнят отговорите.",
+            "197 държави върху ръчно начертана карта на света, без нужда от акаунт. Създаден с AI инструменти за програмиране: аз проектирах продукта, взех архитектурните решения и решенията за данните и тествах всяка функция, като я ползвах, а Claude написа кода.",
+          ],
+          githubUrl: "https://github.com/kirilchobansky/zemya",
+          demoUrl: "https://zemya.study",
         },
       ] as Project[],
     },

@@ -67,6 +67,14 @@
   justify-content: flex-start;
 }
 
+.demoNote {
+  align-self: center;
+  flex: 1 1 200px;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  opacity: 0.7;
+}
+
 .repoBtn,
 .demoBtn,
 .downloadBtn {
@@ -92,4 +100,4 @@
   color: var(--hud-text);
   border-color: var(--hud-green);
   box-shadow: 0 0 15px var(--hud-green-faint);
-}
+}

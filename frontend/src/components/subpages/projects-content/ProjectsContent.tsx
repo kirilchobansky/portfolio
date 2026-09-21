@@ -44,6 +44,9 @@ export default function ProjectsContent(): React.JSX.Element {
                 {t.projectsSection.actions.demo}
               </a>
             )}
+            {project.demoUrl && project.demoNote && (
+              <span className={styles.demoNote}>⏳ {project.demoNote}</span>
+            )}
             {project.downloadUrl && (
               <a
                 href={project.downloadUrl}
@@ -60,4 +63,4 @@ export default function ProjectsContent(): React.JSX.Element {
       ))}
     </div>
   );
-}
+}
