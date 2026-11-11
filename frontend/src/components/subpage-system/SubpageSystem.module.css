@@ -58,10 +58,13 @@
   border-radius: 2px;
 }
 
-.closeButton:hover {
-  background: var(--hud-green-dark);
-  color: var(--hud-text);
-  border-color: var(--hud-green);
+.closeButton:hover,
+.closeButton:active,
+.closeButton:focus-visible {
+  background: #c62828;
+  color: #ffffff;
+  border-color: #ff5252;
+  outline: none;
 }
 
 .content {
@@ -164,13 +167,17 @@
     -webkit-overflow-scrolling: touch; /* Smooth iOS scroll */
   }
 
-  /* 6. Header / Title scaling for mobile */
+  /* 6. Header / Title scaling for mobile ("TERMINAL: //" prefix is hidden to save space) */
+  .titlePrefix {
+    display: none;
+  }
+
   .title {
     font-size: 1.2rem !important;
     letter-spacing: 0.5px;
     margin-bottom: 18px !important;
     padding-bottom: 10px !important;
-    padding-right: 70px !important; /* Leave room for close button */
+    padding-right: 95px !important; /* Leave room for close button */
     word-break: break-word;
   }
 

@@ -68,7 +68,7 @@ export default function SubpageSystem({ isOpen, activeId, direction, onClose }: 
 
           <div className={styles.content}>
             <h1 className={styles.title}>
-              TERMINAL: // {getTranslatedTitle()} 
+              <span className={styles.titlePrefix}>TERMINAL: // </span>{getTranslatedTitle()}
             </h1>
             
             <div className={styles.bodyText}>
