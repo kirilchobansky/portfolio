@@ -44,29 +44,48 @@
   font-weight: 600;
   letter-spacing: 2px;
   margin: 0;
+  text-wrap: balance; /* keeps wrapped lines even; brackets are bound to the first/last word with non-breaking spaces */
+}
+
+.hubContainer {
+  /* Laptop (< 1700px wide): 5 rows. Wider screens: 4 rows (see media query below). */
+  --mission-width: 246px;
+  --mission-font-size: 0.85rem;
+  /* Distance from the centre line to each text block. Bigger = wider gap between the two blocks. */
+  --mission-head-gap: calc(7vh + 30px);
+}
+
+@media (min-width: 1700px) {
+  .hubContainer {
+    --mission-width: 280px;
+    --mission-font-size: 0.9rem;
+  }
 }
 
 .sideMissionBlock {
   position: absolute;
-  width: 300px;
+  /* ROW COUNT: controlled only by --mission-width and --mission-font-size */
+  width: var(--mission-width);
   z-index: 3;
   pointer-events: none;
   animation: panelFadeIn 1.2s ease-out forwards;
 }
 
+/* Anchored to the avatar (centered, width ~= 0.567 * viewport height) instead of
+   fixed percentages, so the text keeps a clear gap from the head on any screen. */
 .leftShoulder {
-  top: 30%; 
-  left: 28%; 
+  top: 30%;
+  right: calc(50% + var(--mission-head-gap));
 }
 
 .rightShoulder {
-  top: 30%; 
-  right: 28%; 
+  top: 30%;
+  left: calc(50% + var(--mission-head-gap));
 }
 
 .introMissionLeft {
   color: var(--hud-text); 
-  font-size: 0.9rem;
+  font-size: var(--mission-font-size);
   line-height: 1.6;
   margin: 0;
   border-left: 2px solid var(--hud-green-dark); 
@@ -77,7 +96,7 @@
 
 .introMissionRight {
   color: var(--hud-text); 
-  font-size: 0.9rem;
+  font-size: var(--mission-font-size);
   line-height: 1.6;
   margin: 0;
   border-right: 2px solid var(--hud-green-dark); 
@@ -110,7 +129,8 @@
 .nodeProjects { top: 30%; left: 80%; } 
 .nodeContact  { top: 70%; left: 75%; } 
 
-.socialInsta    { top: 14%; left: 68%; animation-duration: 5.5s; animation-delay: 0s; }
+/* sits above the name block (top: 12%) instead of overlapping it */
+.socialInsta    { top: max(2%, calc(16% - 62px)); left: 68%; animation-duration: 5.5s; animation-delay: 0s; }
 .socialGithub   { top: 85%; left: 45%; animation-duration: 7s;   animation-delay: -2s; }
 .socialLinkedin { top: 50%; left: 92%; animation-duration: 6s;   animation-delay: -1s; }
 .socialGmail    { top: 45%; left: 8%;  animation-duration: 8s;   animation-delay: -3s; }

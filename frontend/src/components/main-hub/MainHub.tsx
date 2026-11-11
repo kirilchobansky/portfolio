@@ -50,7 +50,7 @@ export default function MainHub(): React.JSX.Element {
 
       <div className={styles.topIntroBlock}>
         <h1 className={styles.introGreeting}>{t.hubIntro.greeting}</h1>
-        <h2 className={styles.introRole}>[ {t.hubIntro.role} ]</h2>
+        <h2 className={styles.introRole}>[&nbsp;{t.hubIntro.role}&nbsp;]</h2>
       </div>
 
       <div className={`${styles.sideMissionBlock} ${styles.leftShoulder}`}>
